@@ -9,5 +9,15 @@ pipeline {
         }
       }
     }
+    stage ('Push docker image') {
+      steps {
+        script {
+          docker.withRegistry('https://registry.hub.docker.com', 'docker-creds') {
+            dockerapp.push('latest')
+            dockerapp.push("${env.BUID_ID}")
+          }
+        }
+      }
+    }
   }
 }
