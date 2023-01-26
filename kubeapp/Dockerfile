@@ -1,10 +1,5 @@
 FROM node:slim
 
-ENV DB_DATABASE=kubedevnews \
-    DB_USERNAME=kubedevnews \
-    DB_PASSWORD=Pg#123 \
-    DB_HOST=postgres
-
 WORKDIR /app
 
 COPY package.json .
