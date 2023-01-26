@@ -21,7 +21,7 @@ pipeline {
     }
     stage ('Deploy k8s') {
       steps {
-        withKubeconfig([credentialsId: 'kube-creds']) {
+        withKubeConfig([credentialsId: 'kube-creds']) {
           sh 'kubectl apply -f ./k8s/Secret.yaml'
           sh 'kubectl apply -f ./k8s/Service.yaml'
           sh 'kubectl apply -f ./k8s/Deployment.yaml'
