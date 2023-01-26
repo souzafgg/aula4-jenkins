@@ -53,7 +53,7 @@ spec:
     spec:
       containers:
       - name: app-news
-        image: szadhub/app-news:{{TAG}}
+        image: szadhub/app-news1:{{TAG}}
         ports:
         - containerPort: 8080
         env:
