@@ -5,7 +5,7 @@ pipeline {
     stage ('Build docker image') {
       steps {
         script {
-          dockerapp = docker.build("szadhub/app-news1:${env.BUILD_ID}", "-f ./kubeapp/Dockerfile ./kubeapp")
+          dockerapp = docker.build("szadhub/app-news:${env.BUILD_ID}", "-f ./kubeapp/Dockerfile ./kubeapp")
         }
       }
     }
@@ -14,7 +14,7 @@ pipeline {
         script {
           docker.withRegistry('https://registry.hub.docker.com', 'docker-creds') {
             dockerapp.push('latest')            
-            dockerapp.push("${env.BUID_ID}")
+            dockerapp.push("${env.BUILD_ID}")
           }
         }
       }
